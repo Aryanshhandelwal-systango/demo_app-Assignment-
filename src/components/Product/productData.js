@@ -1,0 +1,138 @@
+import Product_1 from '../../assets/Product_1.png'
+const ProductData =  [ 
+    {
+        id: 1,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img:Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+
+    {
+        id: 2,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+
+    {
+        id: 3,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+
+    {
+        id: 4,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+    {
+        id: 5,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+    {
+        id: 6,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+    {
+        id: 7,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+    {
+        id: 8,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+    {
+        id: 9,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+    {
+        id: 10,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+    {
+        id: 11,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+    {
+        id: 12,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+    {
+        id: 13,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+    {
+        id: 14,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+    {
+        id: 15,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+    {
+        id: 16,
+        title: 'Gap',
+        content: 'Men Black & Red Regular Fit Checked...',
+        img: Product_1,
+        price: 599,
+        price_Content: '$1200 (50% OFF)',
+    },
+
+
+]
+
+export default ProductData;

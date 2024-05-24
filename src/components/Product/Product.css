@@ -1,0 +1,33 @@
+.product_container{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 10px 20px;;
+}
+
+.product_container .product_box{
+    width: 300px;
+    height: 600px;
+    overflow: hidden;
+    margin-top: 20px;
+    background-color: #e8e8e8;
+    padding: 10px 20px;
+    cursor: pointer;
+
+}
+
+.product_container .product_box .content{
+    align-items: center;
+    max-width: 100%;
+}
+
+.product_container .product_box .content .img-box img {
+    width: 250px;
+    height: 250px;;
+}
+
+.product_container .product_box .product_content .product_detail .info {
+    margin-top: 20px;
+}
