@@ -31,3 +31,16 @@
 .product_container .product_box .product_content .product_detail .info {
     margin-top: 20px;
 }
+
+.product_detail{
+    padding-left:10px ;
+}
+
+.info p{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.info button{
+    padding-top: 10px;
+}

@@ -3,7 +3,7 @@ const ProductData =  [
     {
         id: 1,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img:Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -12,7 +12,7 @@ const ProductData =  [
     {
         id: 2,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -21,7 +21,7 @@ const ProductData =  [
     {
         id: 3,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -30,7 +30,7 @@ const ProductData =  [
     {
         id: 4,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -38,7 +38,7 @@ const ProductData =  [
     {
         id: 5,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -46,7 +46,7 @@ const ProductData =  [
     {
         id: 6,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -54,7 +54,7 @@ const ProductData =  [
     {
         id: 7,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -62,7 +62,7 @@ const ProductData =  [
     {
         id: 8,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -70,7 +70,7 @@ const ProductData =  [
     {
         id: 9,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -78,7 +78,7 @@ const ProductData =  [
     {
         id: 10,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -86,7 +86,7 @@ const ProductData =  [
     {
         id: 11,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -94,7 +94,7 @@ const ProductData =  [
     {
         id: 12,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -102,7 +102,7 @@ const ProductData =  [
     {
         id: 13,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -110,7 +110,7 @@ const ProductData =  [
     {
         id: 14,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -118,7 +118,7 @@ const ProductData =  [
     {
         id: 15,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',
@@ -126,7 +126,7 @@ const ProductData =  [
     {
         id: 16,
         title: 'Gap',
-        content: 'Men Black & Red Regular Fit Checked...',
+        content: "Men's Pullover Sweatshirt",
         img: Product_1,
         price: 599,
         price_Content: '$1200 (50% OFF)',

@@ -37,7 +37,6 @@
     color:black; 
     border: none;
     cursor: pointer;
-    bottom: 10px;
     transition: opacity 0.3s;
     font-family: Roboto, sans-serif; 
   }

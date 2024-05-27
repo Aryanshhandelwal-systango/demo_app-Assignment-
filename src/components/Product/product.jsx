@@ -20,7 +20,7 @@ function product() {
                                 <div className="info">
                                     <h3>{shirt.title}</h3>
                                     <p>{shirt.content}</p>
-                                    <p>{shirt.price}</p>
+                                    <p><b>{shirt.price}</b></p>
                                 </div>
                                 <button>View</button>
                             </div>
