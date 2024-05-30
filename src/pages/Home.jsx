@@ -1,11 +1,11 @@
 import React from 'react';
 import Helmet from '../components/Helmet/Helmet';
+import Product from '../components/Product/product';
 
-function Home() {
+function Home({handleClick}) {
   return (
-   <Helmet title= {'Home'}>
-
-
+   <Helmet title= {'Home'} >
+    <Product handleClick={handleClick}/>
    </Helmet>
    
   );

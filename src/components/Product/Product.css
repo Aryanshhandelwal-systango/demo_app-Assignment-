@@ -140,6 +140,11 @@
     justify-items: center;
 }
 
+ .selected {
+    background-color: #ff0000; 
+    color: #ffffff;
+  }
+
 .detail_container .detail_content .detail_info .detail h4 button:hover{
     background-color: rgb(173, 154, 154);
     border:wheat
