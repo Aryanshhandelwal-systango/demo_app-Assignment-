@@ -28,7 +28,7 @@
     max-width: 100%;
 }
 
-.product_container .product_box .content .img-box img {
+.product_container .product_box .content .image_src-box img {
     width: 250px;
     height: 250px;;
 }
@@ -79,57 +79,62 @@
     
 }
 
-.detail_container .detail_content {
+.detail_container .detail_name {
     max-width: 100%;
     
 }
 
-.detail_container .detail_content{
+.detail_container .detail_name{
     border: none;
     outline: none;
     cursor: pointer;
     
 }
 
-.detail_container .detail_content .detail_info{
+.detail_container .detail_name .detail_info{
     display: flex;
     justify-content: space-between;
     margin-top: 20px;;
     
 }
 
-.detail_container .detail_content .detail_info .img-box img{
+.detail_container .detail_name .detail_info .image_src-box img{
     width: 270px;
     height: 350px;
 }
 
-.detail_container .detail_content .detail_info .detail{
+.detail_container .detail_name .detail_info .detail{
     margin-left: 10px;
 }
 
-.detail_container .detail_content .detail_info .detail h2{
+.detail_container .detail_name .detail_info .detail h2{
     color: blue;
     font-weight: 20;
     
 }
 
-.detail_container .detail_content .detail_info .detail h3{
+.detail_container .detail_name .detail_info .detail h3{
     margin-top: 10px;
     color:black;
 }
 
-.detail_container .detail_content .detail_info .detail p{
+.detail_container .detail_name .detail_info .detail p{
     margin-top: 10px;
     margin-right: 30px;
 }
 
-.detail_container .detail_content .detail_info .detail h4{
+.detail_container .detail_name .detail_info .detail h4{
     margin-top: 10px;
     color: black;
     
 }
+.image_src-box img{
+    width: 262px;
+    height: 349px;
+    
+}
 
-.detail_container .detail_content .detail_info .detail h4 button{
+.detail_container .detail_name .detail_info .detail h4 button{
     border-radius: 100px 100px 100px 100px;
     width: 20px;
     font-size: 15px;
@@ -140,17 +145,12 @@
     justify-items: center;
 }
 
- .selected {
-    background-color: #ff0000; 
-    color: #ffffff;
-  }
-
-.detail_container .detail_content .detail_info .detail h4 button:hover{
+.detail_container .detail_name .detail_info .detail h4 button:hover{
     background-color: rgb(173, 154, 154);
     border:wheat
 }
 
-.detail_container .detail_content .detail_info .detail button{
+.detail_container .detail_name .detail_info .detail button{
     margin-top: 20px;
     padding: 10px 30px;
     border: none;
@@ -161,7 +161,7 @@
     cursor: pointer;
 }
 
-.detail_container .detail_content .detail_info .detail button:hover{
+.detail_container .detail_name .detail_info .detail button:hover{
     border:none;
     background-color: orange;
 }
