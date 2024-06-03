@@ -10,12 +10,25 @@ function Product() {
   const products = useSelector((state) => state.product.filteredProducts);
   const detail = useSelector((state) => state.product.detail);
   const close = useSelector((state) => state.product.close);
+  const status = useSelector((state) => state.product.status);
+  const error = useSelector((state) => state.product.error);
+
+ 
+  console.log(typeof products);
 
   const detailPage = (product) => {
     dispatch(setDetail(product));
   };
 
   const size = ['XS', 'S', 'M', 'L', 'XL'];
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  if (status === 'failed') {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <>
@@ -33,7 +46,7 @@ function Product() {
                 <div className="detail">
                   <h2>{detail.vendor}</h2>
                   <h3>{detail.name}</h3>
-                  <h3>{detail.tag}</h3>
+                  
                   <h4>
                     Size:
                     {size.map((size, index) => (
@@ -53,7 +66,7 @@ function Product() {
       )}
 
       <div className="product_container">
-        {products.map((shirt) => (
+        {products?.map ?.((shirt) => (
           <div key={shirt.id} className="product_box" onClick={() => detailPage(shirt)}>
             <div className="product_name">
               <div className="image_src-box">

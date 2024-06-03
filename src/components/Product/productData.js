@@ -154,7 +154,7 @@ const ProductData = [
 export default ProductData;*/
 
 
-
+/*
      const ProductData = [  {
         "id": 1,
         "vendor": "Gap",
@@ -1052,4 +1052,4 @@ export default ProductData;*/
         ]
     },
  ]
-   export default ProductData;
+   export default ProductData;*/

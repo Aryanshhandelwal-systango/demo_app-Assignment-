@@ -11,6 +11,7 @@ const Filter = () => {
   const dispatch = useDispatch();
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
+    dispatch(filterProducts(event.target.value));
   };
   const filters = ['All', 'T-shirt', 'Denim', 'Sweatshirts', 'Polo T-shirts'];
 
