@@ -3,11 +3,21 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import './Filter.css';
 import { filterProducts } from '../../store/Slices/productSlice';
+import { useState } from 'react';
 
 const Filter = () => {
-  const dispatch = useDispatch();
+  const [selectedOption, setSelectedOption] = useState('Option 1');
 
+  const dispatch = useDispatch();
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
   const filters = ['All', 'T-shirt', 'Denim', 'Sweatshirts', 'Polo T-shirts'];
+
+  const sortOptions = [
+    { value: 'Option 1', label: 'Sort by: Price Low to High' },
+    { value: 'Option 2', label: 'Sort by: Price High to Low' },
+  ]
 
   const handleFilter = (filter) => {
     dispatch(filterProducts(filter));
@@ -31,6 +41,13 @@ const Filter = () => {
               {filter}
             </button>
           ))}
+        </span>
+        <span className='sort'>
+        <select className="sort" value={selectedOption} onChange={handleChange}>
+          {sortOptions.map((option) => (
+            <option key={option.value} value={option.value}>{option.label}</option>
+          ))}
+        </select>
         </span>
       </span>
     </>
