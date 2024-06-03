@@ -27,14 +27,7 @@
     opacity: 0px;
     padding-left: -px;
 }
-/*
-.logo img{
-    width: 200px;
-    height: 60px;
-    top: 10px;
-    left: 18px;
-}
-*/
+
 .menu{
     display: flex;
     align-items: center;

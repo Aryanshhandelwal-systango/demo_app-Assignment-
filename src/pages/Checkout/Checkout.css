@@ -1,0 +1,18 @@
+.checkout_container{
+    width: 600px;
+    height: 300px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color:bisque;
+    margin-left: 28%;
+    margin-top: 100px;
+    padding-top:40px;
+    color:brown;
+    font-weight:bold;
+
+}
+.checkout_container p{
+    margin-top: 35px;
+    color: black;
+}

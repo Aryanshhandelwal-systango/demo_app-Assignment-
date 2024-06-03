@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../Header/Header';
 import Routers from '../../routers/Routers';
 import Message from '../Message_Line/Message';
-import Filter from '../Filter/Filter'
+import Filter from '../Filter/Filter';
+import Cart from '../../pages/Cart/Cart';
+import ProductData from '../Product/productData';
 
-function Layout() {
+function Layout({children, cart, setCart}) {
+  
   return (
     <>
-      <Header/>
+      <Header cart={cart} />
       <Message />
       <Filter/>
-     
       <div>
-        <Routers/>
+        {children}
+        {/* <Routers handleClick={handleClick} cart={cart} setCart={setCart}/> */}
       </div>
     </>
   )
