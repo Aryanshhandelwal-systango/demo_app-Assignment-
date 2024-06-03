@@ -1,98 +1,95 @@
-import React, { useState } from "react";
-import './Product.css';
+// src/components/Product/Product.jsx
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { AiFillCloseCircle } from 'react-icons/ai';
-import ProductData from './productData';
+import { setDetail, closeDetail } from '../../store/Slices/productSlice';
+import './Product.css';
 
-function Product({handleClick}) {
-  const [detail, setDetail] = useState([]);
-  const [close, setClose] = useState(false);
-  const [selectedSize, setSelectedSize] = useState(null);
+function Product() {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.product.filteredProducts);
+  const detail = useSelector((state) => state.product.detail);
+  const close = useSelector((state) => state.product.close);
+  const status = useSelector((state) => state.product.status);
+  const error = useSelector((state) => state.product.error);
+
+ 
+  console.log(typeof products);
 
   const detailPage = (product) => {
-    setDetail([{ ...product }]);
-    setClose(true);
-    setSelectedSize(null); 
-  }
-
-  const handleSizeClick = (size) => {
-    setSelectedSize(size);
-  }
+    dispatch(setDetail(product));
+  };
 
   const size = ['XS', 'S', 'M', 'L', 'XL'];
 
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  if (status === 'failed') {
+    return <div>Error: {error}</div>;
+  }
+
   return (
     <>
-   
-      {
-        close ?
-          <div className="detail_container">
-            <div className="detail_content">
-              <button className="close" onClick={() => setClose(false)}><AiFillCloseCircle /></button>
-              {
-                detail.map((x) => {
-                  return (
-                    <div key={x.id}>
-                      <div className="detail_info">
-                        <div className="img-box">
-                          <img src={x.img} alt={x.title} />
-                        </div>
-                        <div className="detail">
-                          <h2>{x.title}</h2>
-                          <h3>{x.content}</h3>
-                          <h4>Size: {size.map((sizeOptions, index) => (
-                            <button
-                              key={index}
-                              //active buttons
-                              onClick={() => handleSizeClick(sizeOptions)}
-                            >
-                              {sizeOptions}
-                            </button>
-                            
-                          ))}</h4>
-                          
-                          <h3>$ {x.price}</h3>
-                          <p>{x.price_Content}</p>
-                          <button onClick = {() => {handleClick({...x, selectedSize})}}>Add to Cart</button>
-                        </div>
-                        
-                      </div>
-                    </div>
-                     
-                  )
+      {close && (
+        <div className="detail_container">
+          <div className="detail_name">
+            <button className="close" onClick={() => dispatch(closeDetail())}>
+              <AiFillCloseCircle />
+            </button>
+            <div key={detail.id}>
+              <div className="detail_info">
+                <div className="image_src-box">
+                  <img src={detail.image_src} alt={detail.vendor} />
+                </div>
+                <div className="detail">
+                  <h2>{detail.vendor}</h2>
+                  <h3>{detail.name}</h3>
                   
-                })
-                
-              }
-            </div>
-          </div> : null
-      }
-       
-        
-      <div className="product_container">
-        {
-          ProductData.map((shirt) => {
-            return (
-              <div key={shirt.id} className="product_box" onClick={() => detailPage(shirt)}>
-                <div className="product_content">
-                  <div className="img-box">
-                    <img src={shirt.img} alt={shirt.title} />
-                  </div>
-                  <div className="product_detail">
-                    <div className="info">
-                      <h3>{shirt.title}</h3>
-                      <p><b>Size:</b> {shirt.size}</p>
-                      <p><b>${shirt.price}</b></p>
-                    </div>
-                    <button>View</button>
-                  </div>
+                  <h4>
+                    Size:
+                    {size.map((size, index) => (
+                      <button key={index} className="size_buttons">
+                        {size}
+                      </button>
+                    ))}
+                  </h4>
+                  <h3>$ {detail.price}</h3>
+                  <p>{detail.compare_at_price}</p>
+                  <button>Add to Cart</button>
                 </div>
               </div>
-            )
-          })
-        }
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="product_container">
+        {products?.map ?.((shirt) => (
+          <div key={shirt.id} className="product_box" onClick={() => detailPage(shirt)}>
+            <div className="product_name">
+              <div className="image_src-box">
+                <img src={shirt.image_src} alt={shirt.vendor} />
+              </div>
+              <div className="product_detail">
+                <div className="info">
+                  <h3>{shirt.vendor}</h3>
+                  <p>
+                    <b>Size:</b> {shirt.size}
+                  </p>
+                  <p>
+                    <b>${shirt.price}</b>
+                  </p>
+                </div>
+                <button>View</button>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </>
-  )
+  );
 }
 
 export default Product;
