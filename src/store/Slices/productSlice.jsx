@@ -1,7 +1,7 @@
 // src/store/Slices/productSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
+import test from './test.json'
 const initialState = {
   products: [], // All products
   filteredProducts: [], // Products after filtering
@@ -14,11 +14,11 @@ const initialState = {
 export const fetchProducts = createAsyncThunk('product/fetchProducts', async () => {
     try {
         const response = await fetch('https://cdn.shopify.com/s/files/1/0455/2176/4502/files/products.json'); // Replace with your API URL
-        const textData = await response.text(); // Get the response as text
-        console.log(typeof textData, 'textData');
-        const data = JSON.parse(JSON.stringify(textData)); // Parse the text as JSON\
-        console.log(data);
-        return data
+        // const textData = await response.text(); // Get the response as text
+        // console.log(textData, 'textData');
+        // const data = JSON.parse(textData); // Parse the text as JSON\
+        // console.log(data);
+        return test
         // try {
         //     console.log(data, 'Parsed JSON', response.body);
         //     return data;
