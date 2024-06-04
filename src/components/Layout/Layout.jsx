@@ -10,13 +10,16 @@ function Layout({children, cart, setCart}) {
   
   return (
     <>
+    
       <Header cart={cart} />
       <Message />
       <Filter/>
+      
       <div>
         {children}
         {/* <Routers handleClick={handleClick} cart={cart} setCart={setCart}/> */}
       </div>
+     
     </>
   )
 }
