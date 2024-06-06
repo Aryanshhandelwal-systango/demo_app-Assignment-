@@ -2,8 +2,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import './Filter.css';
-import { filterProducts } from '../../store/Slices/productSlice';
+import { filterProducts, sortProducts } from '../../store/Slices/productSlice';
 import { useState } from 'react';
+
 
 const Filter = () => {
   const [selectedOption, setSelectedOption] = useState('Option 1');
@@ -12,8 +13,9 @@ const Filter = () => {
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
     dispatch(filterProducts(event.target.value));
+    dispatch(sortProducts(event.target.value));
   };
-  const filters = ['All', 'T-shirt', 'Denim', 'Sweatshirts', 'Polo T-shirts'];
+  const filters = [ 'All','T-shirt', 'Denim', 'Sweatshirts', 'Polo T-shirts'];
 
   const sortOptions = [
     { value: 'Option 1', label: 'Sort by: Price Low to High' },

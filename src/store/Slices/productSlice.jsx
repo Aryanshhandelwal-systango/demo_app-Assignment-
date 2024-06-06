@@ -1,10 +1,9 @@
-// src/store/Slices/productSlice.js
+
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import test from './test.json'
 const initialState = {
-  products: [], // All products
-  filteredProducts: [], // Products after filtering
+  products: [], 
+  filteredProducts: [],
   detail: null,
   close: false,
   status: 'idle',
@@ -37,7 +36,6 @@ const productSlice = createSlice({
   initialState,
   reducers: {
     setProducts(state, action) {
-      state.products = action.payload;
       state.filteredProducts = action.payload;
     },
     setDetail(state, action) {
@@ -58,6 +56,14 @@ const productSlice = createSlice({
         console.log(action.payload, state.products)
       }
     },
+    sortProducts: (state, action) => {
+      const sortOption = action.payload;
+      if (sortOption === 'Option 1') {
+        state.filteredProducts.sort((a, b) => a.price - b.price);
+      } else if (sortOption === 'Option 2') {
+        state.filteredProducts.sort((a, b) => b.price - a.price);
+      }
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -67,7 +73,7 @@ const productSlice = createSlice({
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.products = action.payload;
-        state.filteredProducts = action.payload; // Initially, all products are displayed
+        state.filteredProducts = action.payload; 
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = 'failed';
@@ -76,6 +82,6 @@ const productSlice = createSlice({
   },
 });
 
-export const { setProducts, setDetail, closeDetail, filterProducts } = productSlice.actions;
+export const { setProducts, sortProducts, setDetail, closeDetail, filterProducts } = productSlice.actions;
 
 export default productSlice.reducer;

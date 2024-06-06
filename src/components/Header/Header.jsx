@@ -17,14 +17,14 @@ const navlinks = [
   },
   {
     path:'/cart',
-    diplay:'About Us' //need to update the nav_links
+    diplay:'About Us'
   },
   {
-    path:'/home',
+    path:'/Stores',
     diplay:'Our Stores'
   },
   {
-    path:'/home',
+    path:'/Contact Us',
     diplay:'Contact Us'
   },
 ]
@@ -36,10 +36,10 @@ function Header({cart}) {
   const navigate = useNavigate();
 
   const handleCartClick = () =>{
-    navigate('/Cart');
+    navigate('/cart');
   }
   
-//  console.log(cart)
+ console.log(cart , 'cartttt')
   return (
     <div>
     <header className='header'>
