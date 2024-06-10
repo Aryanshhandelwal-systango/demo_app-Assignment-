@@ -1,5 +1,5 @@
 
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, current, createAsyncThunk } from '@reduxjs/toolkit';
 import test from './test.json'
 const initialState = {
   products: [], 
@@ -12,20 +12,10 @@ const initialState = {
 
 export const fetchProducts = createAsyncThunk('product/fetchProducts', async () => {
     try {
-        const response = await fetch('https://cdn.shopify.com/s/files/1/0455/2176/4502/files/products.json'); // Replace with your API URL
-        // const textData = await response.text(); // Get the response as text
-        // console.log(textData, 'textData');
-        // const data = JSON.parse(textData); // Parse the text as JSON\
-        // console.log(data);
+        const response = await fetch('https://cdn.shopify.com/s/files/1/0455/2176/4502/files/products.json'); 
+   
         return test
-        // try {
-        //     console.log(data, 'Parsed JSON', response.body);
-        //     return data;
-        // } catch (jsonError) {
-        //     console.log('JSON parsing error:', jsonError.message);
-        //     console.log('Received data:', textData);
-        //     throw jsonError; // Re-throw the error to be caught by the outer catch
-        // }
+
     } catch (error) {
         console.error('Fetch error:', error.message);
         throw error;
@@ -45,24 +35,73 @@ const productSlice = createSlice({
     closeDetail(state) {
       state.close = false;
     },
-    filterProducts(state, action) {
+    // filterProducts(state, action) {
+    //   if (action.payload === 'All') {
+    //     state.filteredProducts = state.products;
+    //   } else {
+    //     const filteredData = state.products.filter((product) => product.tag === action.payload);
+    //     console.log('Filtered Data:', filteredData);
+        
+    //     state.filteredProducts = filteredData;
+        
+    //     if (filteredData.length === 0) {
+    //       console.log("No matching products");
+    //     }
+    //   }
+    // },
+    filterProducts(state,action) {
+      console.log('action',action)
       if (action.payload === 'All') {
         state.filteredProducts = state.products;
-        console.log(action.payload)
+        
       } else {
-        state.filteredProducts = state.products.filter(
-          (product) => product.category === action.payload
-        );
-        console.log(action.payload, state.products)
+         const currentState =current(state);
+         const productState=currentState.products; 
+     
+      const filteredData = productState?.filter((product) => {
+        if( product.tag === action.payload) {
+          return product
+        }
+      })
+   
+      console.log(filteredData);
+      state.filteredProducts = filteredData
+      if(filteredData.length === 0){
+       console.log("No matching products")
+      }
+
       }
     },
     sortProducts: (state, action) => {
-      const sortOption = action.payload;
-      if (sortOption === 'Option 1') {
-        state.filteredProducts.sort((a, b) => a.price - b.price);
-      } else if (sortOption === 'Option 2') {
-        state.filteredProducts.sort((a, b) => b.price - a.price);
-      }
+      // console.log('action',action)
+      const currentState =current(state);
+      // console.log("curr",currentState);
+      const productState=[...currentState.products];
+      console.log("prod",productState) ;
+
+      
+      const sortedData = productState?.sort((a,b)=>{
+        if (action.payload === 'Option 1') {
+          return a.price - b.price;
+        } else if (action.payload === 'Option 2') {
+          return b.price - a.price;
+        }
+        
+      })
+      console.log(action.payload)
+      console.log(sortedData)
+      /*const sortedData = [...state.filteredProducts]/*.sort((a, b) => {
+        
+        if (action.payload === 'Price Low to High') {
+          return a.price - b.price;
+        } else if (action.payload === 'Price High to Low') {
+          return b.price - a.price;
+        }
+        return 0;
+      });*/
+      state.filteredProducts = sortedData;
+      // console.log("FilteredData",state.filteredProducts)
+      // console.log("sorteddata",state.sortedData)
     }
   },
   extraReducers: (builder) => {

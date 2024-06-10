@@ -16,8 +16,8 @@ const Routers = ({}) => {
       if (x.id === ProductData.id)
       isPresent = true;
     })
-    if(isPresent)
-    return;
+    // if(isPresent)
+    // return;
    
      setCart([...cart,x])
   }
@@ -26,7 +26,7 @@ const Routers = ({}) => {
     console.log(x)
     let ind = -1;
     cart.forEach((data,index)=>{
-      if(data.id==x.id)
+      if(data.id===x.id)
         ind=index;
     });
     const tempArr = cart;

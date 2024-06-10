@@ -65,7 +65,7 @@ white-space: nowrap;
 
 }
 .product_container .product_box .product_name .product_detail .info span {
-    font-family: Roboto;
+    font-family: 'Roboto';
 font-size: 14px;
 font-weight: 700;
 line-height: 16.41px;
@@ -129,16 +129,27 @@ padding-top: 0px;
     align-items: center;
     text-align: center;
     justify-content: center;
-    padding: 3px;
+    /* padding: 1px; */
+    padding-bottom: 20px;
     display: block;
     margin: auto;
     border: none;
     margin-top: 10px;
-    background-color: orangered;
+    
+    /* background-color: orangered; */
 }
  .product_detail button:hover{
     background-color: orange;
     border: none;
+}
+
+.add_to_cart-btn{
+
+    border: none;
+    outline: none;
+    background: orangered;
+    color: #000;
+    cursor: pointer;
 }
 
 
@@ -222,16 +233,28 @@ padding-top: 0px;
 }
 
 .detail_container .detail_name .detail_info .detail h4 button{
-    border-radius: 100px 100px 100px 100px;
+     /* border-radius: 100px 100px 100px 100px;
     width: 20px;
     font-size: 15px;
     justify-content: space-between;
-    text-align: center;
+    text-align:justify;
     border: none;
     background: none;
-    justify-items: center;
-    padding: auto;
+    padding-left: 10;
+    padding: auto;  */
+    font-family: 'Roboto';
+    font-size: 15px;
+    justify-content: space-between;
+    width:120px;
+    height: 40px;
+    text-align: center;
+    border-radius: 50px;
+    background: none;
+    
 }
+.product_size_buttons{
+    border-radius: 50px;
+  }
 
 .detail_container .detail_name .detail_info .detail h4 button:hover{
     background-color: rgb(173, 154, 154);
@@ -243,7 +266,6 @@ padding-top: 0px;
     padding: 10px 30px;
     border: none;
     outline: none;
-    background: none;
     background: orangered;
     color: #000;
     cursor: pointer;
@@ -257,10 +279,7 @@ padding-top: 0px;
     border: none;
 }
 
-.product_size_buttons{
-  width:100%;
-  border-radius: 50%;
-}
+
 
 .options-btn{
     display: flex;
