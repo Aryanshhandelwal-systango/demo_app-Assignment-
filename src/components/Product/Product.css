@@ -12,13 +12,16 @@
 .product_container .product_box:hover{
     
     border: 1px solid gray;
-    height: 600px;
+    /* height: 600px; */
     transition-delay: 50ms;
+
 }
+/* .product_container .product_box:hover image{
+    height:200px;
+} */
 
 .product_container .product_box{
     width: 300px;
-    height: 500px;
     overflow: hidden;
     margin-top: 20px;
     
@@ -33,10 +36,13 @@
 }
 
 .product_container .product_box .product_name .image_src-box img {
-    width: 250px;
-    height: 350px;;
+    width: 262px;
+    height: 349px;;
 }
 
+/* .product_container .product_box .product_name .image_src-box img:hover{
+    height: 300px;
+} */
 
 .product_container .product_box .product_name .product_detail .info {
     margin-top: 10px;
@@ -100,7 +106,7 @@ padding-top: 0px;
     
 }
 .product_container .product_box .product_name .product_detail .info .price_container .discount{
-    font-family: Roboto;
+    font-family: 'Roboto';
     font-size: 12px;
     font-weight: 300;
     line-height: 14.06px;
@@ -109,8 +115,14 @@ padding-top: 0px;
     padding-left: 3px;
 }
 
+.product_size_buttons {
+   border:none;
+   background-color: none;
+}
 
-
+.product_size_buttons:hover{
+    opacity: 0.8;
+}
 .product_detail{
     padding-left:10px ;
     margin-top: 10px;
@@ -136,6 +148,7 @@ padding-top: 0px;
     border: none;
     margin-top: 10px;
     
+    
     /* background-color: orangered; */
 }
  .product_detail button:hover{
@@ -150,6 +163,13 @@ padding-top: 0px;
     background: orangered;
     color: #000;
     cursor: pointer;
+    margin-left: 80px;
+    padding-left: 2px;
+    padding-right: 2px;
+    
+}
+.add_to_cart-btn:hover{
+    background-color: orange;
 }
 
 
@@ -269,6 +289,7 @@ padding-top: 0px;
     background: orangered;
     color: #000;
     cursor: pointer;
+    
 }
 
 .detail_container .detail_name .detail_info .detail button:hover{
