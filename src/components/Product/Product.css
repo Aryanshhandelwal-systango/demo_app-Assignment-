@@ -16,9 +16,7 @@
     transition-delay: 50ms;
 
 }
-/* .product_container .product_box:hover image{
-    height:200px;
-} */
+
 
 .product_container .product_box{
     width: 300px;
@@ -40,9 +38,7 @@
     height: 349px;;
 }
 
-/* .product_container .product_box .product_name .image_src-box img:hover{
-    height: 300px;
-} */
+
 
 .product_container .product_box .product_name .product_detail .info {
     margin-top: 10px;
@@ -253,15 +249,7 @@ padding-top: 0px;
 }
 
 .detail_container .detail_name .detail_info .detail h4 button{
-     /* border-radius: 100px 100px 100px 100px;
-    width: 20px;
-    font-size: 15px;
-    justify-content: space-between;
-    text-align:justify;
-    border: none;
-    background: none;
-    padding-left: 10;
-    padding: auto;  */
+
     font-family: 'Roboto';
     font-size: 15px;
     justify-content: space-between;
