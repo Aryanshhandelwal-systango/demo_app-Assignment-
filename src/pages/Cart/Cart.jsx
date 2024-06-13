@@ -4,12 +4,13 @@ import './cart.css';
 import { useNavigate } from 'react-router-dom';
 import Helmet from '../../components/Helmet/Helmet';
 
-function Cart({ cart = [], setCart, handleChange }) {
+function Cart({ cart = [], setCart, handleChange,postCartData }) {
   const [price, setPrice] = useState(0);
   const navigate = useNavigate();
 
   const handleCheckoutClick = () => {
     if (cart.length > 0) {
+      postCartData(cart)
       navigate('/checkout');
       setCart([]);
     } else {

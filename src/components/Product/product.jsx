@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { setDetail, closeDetail } from '../../store/Slices/productSlice';
 import './Product.css';
+// import heartIcon from '../../assets/heart.png';
 
 function Product({ handleClick }) {
   const dispatch = useDispatch();
@@ -15,9 +16,19 @@ function Product({ handleClick }) {
 
   const [hoveredProductId, setHoveredProductId] = useState(null);
   const [selectedOption, setSelectedOption] = useState({ id: null, value: null });
+  const [wishlist, setWishlist] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
 
   const detailPage = (product) => {
     dispatch(setDetail(product));
+  };
+
+  const handleWishlistClick = (productId) => {
+    if (!wishlist.includes(productId)) {
+      setWishlist([...wishlist, productId]);
+      setShowPopup(true);
+      setTimeout(() => setShowPopup(false), 2000);
+    }
   };
 
   const handleSizeClick = (option) => {
@@ -74,6 +85,7 @@ function Product({ handleClick }) {
           </div>
         </div>
       )}
+      {showPopup && <div className="popup">Product added to wishlist</div>}
       {products.length > 0 ? (
         <div className="product_container">
           {products.map((shirt) => (
@@ -83,9 +95,15 @@ function Product({ handleClick }) {
               onMouseEnter={() => setHoveredProductId(shirt.id)}
               onMouseLeave={() => setHoveredProductId(null)}
             >
+             
               <div className="product_name">
                 <div className="image_src-box" onClick={() => detailPage(shirt)}>
                   <img src={shirt.image_src} alt={shirt.vendor} />
+                  {/* <button type="button" className="product-wishlist-icon "><img src={heartIcon} alt={heartIcon}></img></button> */}
+                  {/* <div className="wishlist-icon" onClick={() => handleWishlistClick(shirt.id)}>
+                
+                </div>
+                  <img src={heartIcon} alt={heartIcon} className={wishlist.includes(shirt.id) ? 'wishlist-icon red' : 'wishlist-icon'} /> */}
                 </div>
                 <div className={`product_detail ${hoveredProductId === shirt.id ? 'hide-details' : ''}`}>
                   <div className="info">
