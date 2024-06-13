@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
-import Routers from '../../routers/Routers';
 import Message from '../Message_Line/Message';
 import Filter from '../Filter/Filter';
-import Cart from '../../pages/Cart/Cart';
-import ProductData from '../Product/productData';
 
-function Layout({children, cart, setCart}) {
-  
+function Layout({ children, cart }) {
+  const location = useLocation();
+  const shouldShowFilter = !['/cart', '/checkout'].includes(location.pathname);
+
   return (
     <>
       <Header cart={cart} />
       <Message />
-      <Filter/>
+      {shouldShowFilter && <Filter />}
       <div>
         {children}
-        {/* <Routers handleClick={handleClick} cart={cart} setCart={setCart}/> */}
       </div>
     </>
-  )
+  );
 }
 
 export default Layout;
+

@@ -18,8 +18,9 @@ function App() {
 
   return (
     <>
-      <Layout />
-      <Product />
+      {/* <Layout />
+      <Product /> */}
+      <Routers />
     </>
   );
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 .product_container{
     width:100%;
     display: flex;
@@ -7,17 +9,20 @@
     padding: 10px 20px;;
 }
 
-.product_box:hover{
-    opacity: 0.8;
+.product_container .product_box:hover{
     
+    border: 1px solid gray;
+    /* height: 600px; */
+    transition-delay: 50ms;
+
 }
+
 
 .product_container .product_box{
     width: 300px;
-    height: 600px;
     overflow: hidden;
     margin-top: 20px;
-    background-color: #e8e8e8;
+    
     padding: 10px 20px;
     cursor: pointer;
 
@@ -28,39 +33,139 @@
     max-width: 100%;
 }
 
-.product_container .product_box .content .image_src-box img {
-    width: 250px;
-    height: 250px;;
+.product_container .product_box .product_name .image_src-box img {
+    width: 262px;
+    height: 349px;;
 }
 
-.product_container .product_box .product_content .product_detail .info {
-    margin-top: 20px;
+
+
+.product_container .product_box .product_name .product_detail .info {
+    margin-top: 10px;
+    font-family:'Roboto';
+    
+}
+.product_container .product_box .product_name .product_detail .info h3{
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18.75px;
+    text-align: left;
+    padding-top: 0px;
+}
+.product_container .product_box .product_name .product_detail .info p{
+    font-family: Roboto;
+font-size: 14px;
+font-weight: 300px;
+line-height: 16.41px;
+text-overflow: ellipsis;
+text-align: left;
+color: rgba(135, 135, 135, 1);
+overflow: hidden;
+max-width: 100%;
+white-space: nowrap;
+
+}
+.product_container .product_box .product_name .product_detail .info span {
+    font-family: 'Roboto';
+font-size: 14px;
+font-weight: 700;
+line-height: 16.41px;
+text-align: left;
+color: rgba(0, 0, 0, 1);
+padding-top: 0px;
 }
 
+.discount{
+    padding-left: 5px;
+    color: rgb(238, 51, 51);
+}
+.product_container .product_box .product_name .product_detail .info .price_container div{
+    margin-top: 15px;
+    
+}
+.product_container .product_box .product_name .product_detail .info .price_container {
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16.41px;
+    text-align: left;
+     
+}
+.product_container .product_box .product_name .product_detail .info .price_container span{
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14.06px;
+    text-align: left;
+    padding-left: 5px;
+    
+}
+.product_container .product_box .product_name .product_detail .info .price_container .discount{
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14.06px;
+    text-align: left;
+    color: red;
+    padding-left: 3px;
+}
+
+.product_size_buttons {
+   border:none;
+   background-color: none;
+}
+
+.product_size_buttons:hover{
+    opacity: 0.8;
+}
 .product_detail{
     padding-left:10px ;
+    margin-top: 10px;
 }
 
 .info p{
     padding-top: 10px;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
+
 
  .product_detail button{
     padding-top: 10px;
-    width: 100px;
+    width: 150px;
     height: 30px;
     align-items: center;
     text-align: center;
     justify-content: center;
-    padding: 3px;
+    /* padding: 1px; */
+    padding-bottom: 20px;
     display: block;
     margin: auto;
-    border-color: aliceblue;
+    border: none;
+    margin-top: 10px;
+    
+    
+    /* background-color: orangered; */
 }
  .product_detail button:hover{
     background-color: orange;
     border: none;
+}
+
+.add_to_cart-btn{
+
+    border: none;
+    outline: none;
+    background: orangered;
+    color: #000;
+    cursor: pointer;
+    margin-left: 80px;
+    padding-left: 2px;
+    padding-right: 2px;
+    
+}
+.add_to_cart-btn:hover{
+    background-color: orange;
 }
 
 
@@ -104,7 +209,16 @@
 }
 
 .detail_container .detail_name .detail_info .detail{
-    margin-left: 10px;
+    margin-left: 25px;
+}
+
+.detail_container .detail_name .detail_info .detail p{
+    color: rgba(135, 135, 135, 1);
+    text-decoration:dotted;
+    font-family: Roboto;
+    font-size: 15
+
+    
 }
 
 .detail_container .detail_name .detail_info .detail h2{
@@ -135,15 +249,20 @@
 }
 
 .detail_container .detail_name .detail_info .detail h4 button{
-    border-radius: 100px 100px 100px 100px;
-    width: 20px;
+
+    font-family: 'Roboto';
     font-size: 15px;
     justify-content: space-between;
+    width:120px;
+    height: 40px;
     text-align: center;
-    border: none;
+    border-radius: 50px;
     background: none;
-    justify-items: center;
+    
 }
+.product_size_buttons{
+    border-radius: 50px;
+  }
 
 .detail_container .detail_name .detail_info .detail h4 button:hover{
     background-color: rgb(173, 154, 154);
@@ -155,10 +274,10 @@
     padding: 10px 30px;
     border: none;
     outline: none;
-    background: none;
     background: orangered;
     color: #000;
     cursor: pointer;
+    
 }
 
 .detail_container .detail_name .detail_info .detail button:hover{
@@ -168,3 +287,38 @@
 .close{
     border: none;
 }
+
+
+
+.options-btn{
+    display: flex;
+    gap: 5px
+}
+.product-wishlist-icon {
+    position: absolute;
+    top: 16px;
+    right: 10px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+  }
+  
+  /* .wishlist-icon.red {
+    color: red;
+  } */
+  
+  /* .popup {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+  } */

@@ -17,7 +17,33 @@ article{
     display: flex;
     width: 320px;
 }
+.quantity-btn{
+    height: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 2px;
+    font-weight: bold;
+    margin-left: 10px;
+    justify-content: center;
+    margin-top: 40%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 
+}
+.remove-btn{
+    background-color: orange;
+    font-family: 'Roboto';
+    border: none;
+    outline: none;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
 .cart_img p{
     font-weight: bold;
     margin-left: 40px;

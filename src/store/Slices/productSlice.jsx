@@ -1,10 +1,10 @@
-// src/store/Slices/productSlice.js
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import test from './test.json'
+
+import { createSlice, current, createAsyncThunk } from '@reduxjs/toolkit';
+import test from './test.json';
+
 const initialState = {
-  products: [], // All products
-  filteredProducts: [], // Products after filtering
+  products: [],
+  filteredProducts: [],
   detail: null,
   close: false,
   status: 'idle',
@@ -12,32 +12,20 @@ const initialState = {
 };
 
 export const fetchProducts = createAsyncThunk('product/fetchProducts', async () => {
-    try {
-        const response = await fetch('https://cdn.shopify.com/s/files/1/0455/2176/4502/files/products.json'); // Replace with your API URL
-        // const textData = await response.text(); // Get the response as text
-        // console.log(textData, 'textData');
-        // const data = JSON.parse(textData); // Parse the text as JSON\
-        // console.log(data);
-        return test
-        // try {
-        //     console.log(data, 'Parsed JSON', response.body);
-        //     return data;
-        // } catch (jsonError) {
-        //     console.log('JSON parsing error:', jsonError.message);
-        //     console.log('Received data:', textData);
-        //     throw jsonError; // Re-throw the error to be caught by the outer catch
-        // }
-    } catch (error) {
-        console.error('Fetch error:', error.message);
-        throw error;
-    }
+  try {
+    const response = await fetch('https://cdn.shopify.com/s/files/1/0455/2176/4502/files/products.json');
+    return test;
+  } catch (error) {
+    console.error('Fetch error:', error.message);
+    throw error;
+  }
 });
+
 const productSlice = createSlice({
   name: 'product',
   initialState,
   reducers: {
     setProducts(state, action) {
-      state.products = action.payload;
       state.filteredProducts = action.payload;
     },
     setDetail(state, action) {
@@ -48,15 +36,22 @@ const productSlice = createSlice({
       state.close = false;
     },
     filterProducts(state, action) {
-      if (action.payload === 'All') {
-        state.filteredProducts = state.products;
-        console.log(action.payload)
-      } else {
-        state.filteredProducts = state.products.filter(
-          (product) => product.category === action.payload
-        );
-        console.log(action.payload, state.products)
-      }
+      const currentState = current(state);
+      const filteredData = currentState.products.filter((product) => 
+        action.payload === 'All' ? true : product.tag === action.payload
+      );
+      state.filteredProducts = filteredData;
+    },
+    sortProducts(state, action) {
+      const sortedData = [...state.filteredProducts].sort((a, b) => {
+        if (action.payload === 'Option 1') {
+          return a.price - b.price;
+        } else if (action.payload === 'Option 2') {
+          return b.price - a.price;
+        } 
+        return 0;
+      });
+      state.filteredProducts = sortedData;
     },
   },
   extraReducers: (builder) => {
@@ -67,7 +62,7 @@ const productSlice = createSlice({
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.products = action.payload;
-        state.filteredProducts = action.payload; // Initially, all products are displayed
+        state.filteredProducts = action.payload;
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = 'failed';
@@ -76,6 +71,6 @@ const productSlice = createSlice({
   },
 });
 
-export const { setProducts, setDetail, closeDetail, filterProducts } = productSlice.actions;
+export const { setProducts, sortProducts, setDetail, closeDetail, filterProducts } = productSlice.actions;
 
 export default productSlice.reducer;

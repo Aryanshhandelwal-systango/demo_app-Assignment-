@@ -1,11 +1,12 @@
-// src/components/Product/Product.jsx
-import React from 'react';
+
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { setDetail, closeDetail } from '../../store/Slices/productSlice';
 import './Product.css';
+// import heartIcon from '../../assets/heart.png';
 
-function Product() {
+function Product({ handleClick }) {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.filteredProducts);
   const detail = useSelector((state) => state.product.detail);
@@ -13,14 +14,26 @@ function Product() {
   const status = useSelector((state) => state.product.status);
   const error = useSelector((state) => state.product.error);
 
- 
-  console.log(typeof products);
+  const [hoveredProductId, setHoveredProductId] = useState(null);
+  const [selectedOption, setSelectedOption] = useState({ id: null, value: null });
+  const [wishlist, setWishlist] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
 
   const detailPage = (product) => {
     dispatch(setDetail(product));
   };
 
-  const size = ['XS', 'S', 'M', 'L', 'XL'];
+  const handleWishlistClick = (productId) => {
+    if (!wishlist.includes(productId)) {
+      setWishlist([...wishlist, productId]);
+      setShowPopup(true);
+      setTimeout(() => setShowPopup(false), 2000);
+    }
+  };
+
+  const handleSizeClick = (option) => {
+    setSelectedOption({ id: option.id, value: option.value });
+  };
 
   if (status === 'loading') {
     return <div>Loading...</div>;
@@ -46,48 +59,91 @@ function Product() {
                 <div className="detail">
                   <h2>{detail.vendor}</h2>
                   <h3>{detail.name}</h3>
-                  
                   <h4>
                     Size:
-                    {size.map((size, index) => (
-                      <button key={index} className="size_buttons">
-                        {size}
+                    {detail.options.map((option) => (
+                      <button
+                        key={option.id}
+                        className="size_buttons"
+                        onClick={() => handleSizeClick(option)}
+                      >
+                        {option.value}
                       </button>
                     ))}
                   </h4>
                   <h3>$ {detail.price}</h3>
-                  <p>{detail.compare_at_price}</p>
-                  <button>Add to Cart</button>
+                  <p>
+                    $<del>{detail.compare_at_price}</del>
+                    <span className="discount">
+                      ({Math.round(((detail.compare_at_price - detail.price) / detail.compare_at_price) * 100)}% OFF)
+                    </span>
+                  </p>
+                  <button onClick={() => { handleClick({ ...detail, selectedOption, amount: 1 }) }}>Add to Cart</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       )}
-
-      <div className="product_container">
-        {products?.map ?.((shirt) => (
-          <div key={shirt.id} className="product_box" onClick={() => detailPage(shirt)}>
-            <div className="product_name">
-              <div className="image_src-box">
-                <img src={shirt.image_src} alt={shirt.vendor} />
-              </div>
-              <div className="product_detail">
-                <div className="info">
-                  <h3>{shirt.vendor}</h3>
-                  <p>
-                    <b>Size:</b> {shirt.size}
-                  </p>
-                  <p>
-                    <b>${shirt.price}</b>
-                  </p>
+      {showPopup && <div className="popup">Product added to wishlist</div>}
+      {products.length > 0 ? (
+        <div className="product_container">
+          {products.map((shirt) => (
+            <div
+              key={shirt.id}
+              className="product_box"
+              onMouseEnter={() => setHoveredProductId(shirt.id)}
+              onMouseLeave={() => setHoveredProductId(null)}
+            >
+             
+              <div className="product_name">
+                <div className="image_src-box" onClick={() => detailPage(shirt)}>
+                  <img src={shirt.image_src} alt={shirt.vendor} />
+                  {/* <button type="button" className="product-wishlist-icon "><img src={heartIcon} alt={heartIcon}></img></button> */}
+                  {/* <div className="wishlist-icon" onClick={() => handleWishlistClick(shirt.id)}>
+                
                 </div>
-                <button>View</button>
+                  <img src={heartIcon} alt={heartIcon} className={wishlist.includes(shirt.id) ? 'wishlist-icon red' : 'wishlist-icon'} /> */}
+                </div>
+                <div className={`product_detail ${hoveredProductId === shirt.id ? 'hide-details' : ''}`}>
+                  <div className="info">
+                    <h3>{shirt.vendor}</h3>
+                    <p>{shirt.name}</p>
+                    <span className="price_container">
+                      <b>${shirt.price}</b>
+                      <span>
+                        <del>${shirt.compare_at_price}</del>
+                        <span className="discount">
+                          ({Math.round(((shirt.compare_at_price - shirt.price) / shirt.compare_at_price) * 100)}% OFF)
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                {hoveredProductId === shirt.id && (
+                  <div className="hover_info">
+                    <div className="options-btn">
+                      Size:
+                      {shirt.options.map((option) => (
+                        <button
+                          key={option.id}
+                          className="product_size_buttons"
+                          onClick={() => handleSizeClick(option)}
+                        >
+                          {option.value}
+                        </button>
+                      ))}
+                    </div>
+                    <button className="add_to_cart-btn" onClick={() => { handleClick({ ...shirt, selectedOption, amount: 1 }) }}>Add to Cart</button>
+                  </div>
+                )}
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div>No products available</div>
+      )}
     </>
   );
 }
