@@ -20,6 +20,9 @@ export const fetchProducts = createAsyncThunk('product/fetchProducts', async () 
     throw error;
   }
 });
+const sortById = (products) => {
+  return products.slice().sort((a, b) => a.id - b.id);
+};
 
 const productSlice = createSlice({
   name: 'product',
@@ -43,16 +46,32 @@ const productSlice = createSlice({
       state.filteredProducts = filteredData;
     },
     sortProducts(state, action) {
-      const sortedData = [...state.filteredProducts].sort((a, b) => {
-        if (action.payload === 'Option 1') {
-          return a.price - b.price;
-        } else if (action.payload === 'Option 2') {
-          return b.price - a.price;
-        } 
-        return 0;
-      });
+      let sortedData;
+      if (action.payload === 'None') {
+        sortedData = sortById(state.filteredProducts);
+      } else {
+        sortedData = [...state.filteredProducts].sort((a, b) => {
+          if (action.payload === 'Option 1') {
+            return a.price - b.price;
+          } else if (action.payload === 'Option 2') {
+            return b.price - a.price;
+          }
+          return 0;
+        });
+      }
       state.filteredProducts = sortedData;
     },
+    // sortProducts(state, action) {
+    //     const sortedData = [...state.filteredProducts].sort((a, b) => {
+    //     if (action.payload === 'Option 1') {
+    //       return a.price - b.price;
+    //     } else if (action.payload === 'Option 2') {
+    //       return b.price - a.price;
+    //     } 
+    //     return 0;
+    //   });
+    //   state.filteredProducts = sortedData;
+    // },
   },
   extraReducers: (builder) => {
     builder

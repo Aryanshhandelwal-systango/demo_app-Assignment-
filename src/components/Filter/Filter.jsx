@@ -23,7 +23,7 @@ const Filter = () => {
 
   const filters = ['All', 'T-shirt', 'Denim', 'Sweatshirts', 'Polo T-shirts'];
   const sortOptions = [
-    { value: 'All', label: 'All' },
+    { value: 'None', label: 'None' },
     { value: 'Option 1', label: 'Sort by: Price Low to High' },
     { value: 'Option 2', label: 'Sort by: Price High to Low' },
   ];

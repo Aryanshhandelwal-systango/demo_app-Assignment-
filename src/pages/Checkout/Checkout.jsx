@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Helmet from '../../components/Helmet/Helmet';
 import Header from '../../components/Header/Header';
 import Message from '../../components/Message_Line/Message';

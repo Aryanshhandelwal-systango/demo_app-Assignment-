@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-
-import productSlice from './Slices/productSlice';;
+import orderSilce from './Slices/orderSilce';
+import productSlice from './Slices/productSlice';
 
 const store = configureStore({
   reducer: {
     product: productSlice,
+    orders: orderSilce,
   },
 });
 
